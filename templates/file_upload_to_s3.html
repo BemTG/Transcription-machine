@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+
+
+
+<!-- 
+  <link rel="icon" href="http://example.com/favicon.png"> -->
+<!-- <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+
+    .header img {
+  width: 500px;
+  height: 159px;
+  float: center;
+  background: #ffffff;
+}
+
+    .header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+   </style>
+</head>
+   
+<body>
+
+<div class="header">
+  <img src="logo.jpg" alt="logo"/>
+</div>
+
+</body>
+</html> -->
+
+
+
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Transcribe my audio Homepage</title>
+  <link rel="icon" href="favicon.ico" type="image/gif" sizes="32x32">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/landing-page.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+          <img src="http://placehold.it/150x50?text=Logo" alt="">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+
+        
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+
+
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+          <a class="navbar-brand" href="#">
+          <img src="static/img/rsz_tt_logo.jpg" alt="">
+        </a>
+<!--       <a class="l" href="#">Same day transciption</a> -->
+      <a class="btn btn-primary" href="https://s3.amazonaws.com/www.editor.transcribemyaudio.co.uk/index.html">Transcript Editor</a>
+      
+    </div>
+  </nav>
+
+
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-5" style="color: white"> Receive transcriptions in minutes!</h2>
+          <h3 class="mb-5" > No lengthy sign ups</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UPLOADS -->
+
+            <div class="custom-file">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <!-- <input type="file" name="file" multiple> -->
+
+<!--     <label type="file" name="file" multiple class="custom-file-label" for="validatedCustomFile">Upload MP3 file</label> --></form>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div>
+
+  <br><br><br>
+</form>
+
+
+
+
+<div class="card-body ">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+      <!-- <p class="card-text">1) Select a file to transcribe:</p> -->
+        <input type="file" name="file" class="custom-file"><br><br>
+
+
+        
+
+        <!-- <i class="fa fa-spinner fa-spin" style="font-size:24px"></i> -->
+        
+        <!-- <p class="card-text">2) Enter email address to receive transcription</p> -->
+        <!-- <label>E-mail:</label> -->
+       <input type="text" name="email" class="form-control form-control-lg" placeholder="Enter your email to recieve transciption..."><br>
+
+       <input type="number" name="speaker" class="form-control form-control-lg" min="2" max="9"placeholder="Enter number of speakers (select 2 for single speaker audio) "><br>
+
+
+
+      <button type="submit" name="upload" value="Upload" class="btn btn-block btn-lg btn-primary"  onclick="spinner(), myFunction2()">Upload</button>
+      </form> <br>
+      
+      <!-- <button type="submit" class="sbtn btn btn-secondary btn-c" onclick="spinner()">Log in</button> -->
+<div class="loader">
+  <div class="loading">
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    function spinner() {
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    }
+</script>    
+
+
+<style >
+  * {
+  margin: 0;
+  padding: 0;
+}
+
+.loader {
+  display: none;
+  top: 30%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.loading {
+  border: 8px solid #ccc;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-top-color: #2367DC;
+  border-left-color: #2367DC;
+  animation: spin 1s infinite ease-in;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+
+<script>
+function myFunction2() {
+  alert("It will take a few minutes to upload your audio file. Do not reload the page during this process. Click OK to continue ");
+}
+</script>
+
+<h3><b>{{msg}}</b></h3>
+<!-- <br><button><a href="http://localhost:5000/">Go back</a></button> -->
+
+<!-- <button onclick="myFunction()">Try it</button> -->
+<!-- <input type="submit"  name="upload" value="Submit!" class="btn btn-block btn-lg btn-primary"> -->
+
+
+
+
+
+
+
+
+     <!--    </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0"> -->
+
+              <!--   <input type="text" name="email" class="form-control form-control-lg" placeholder="Enter your email to recieve transciption...">
+ -->
+
+
+
+
+
+<form class="was-validated">
+  <div class="custom-control custom-checkbox mb-3">
+<!--     <input type="checkbox" class="custom-control-input" id="customControlValidation1" required> -->
+<!--     <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label -->
+    <div class="invalid-feedback">Example invalid feedback text</div>
+  </div>
+
+ <!--  <div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+  </div>
+  <div class="custom-control custom-radio mb-3">
+    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+    <div class="invalid-feedback">More example invalid feedback text</div>
+  </div> -->
+
+  <!-- <div class="form-group">
+    <select class="custom-select" required>
+      <option value="">Open this select menu</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <div class="invalid-feedback">Example invalid custom select feedback</div>
+  </div>
+ -->
+<!--   <div class="custom-file">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div>
+</form>
+ -->
+
+
+
+
+
+
+
+
+<!-- 
+      <form action="/upload" method="post" enctype="multipart/form-data">
+      <p class="card-text">1) Select a file to transcribe:</p>
+        <input type="file" name="file" multiple><br><br>
+        
+        <p class="card-text">2) Enter email address to receive transcription</p>
+        <label>E-mail:</label>
+       <input type="text" name="email" >
+
+      <input type="submit" name="upload" value="Upload" class="btn btn-success">
+      </form>
+      {{msg}}
+ -->
+
+
+
+
+
+
+
+
+
+              <form action="/upload" method="post" enctype="multipart/form-data">
+              </div>
+              <div class="col-12 col-md-3">
+
+
+                 <!-- <input type="submit"  name="upload" value="Submit!" class="btn btn-block btn-lg btn-primary"><br><br><br>
+
+                 <h2>{{msg}}</h2> -->
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+                </form>
+                <!-- <button type="submit" class="btn btn-block btn-lg btn-primary">Submit!</button> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header><br>
+
+  <p align="center"><iframe height="400" width="800"
+ src="https://www.youtube.com/embed/9NCJgaMMGB4" >
+</iframe></p>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-desktop m-auto text-primary"></i>
+            </div>
+            <h3>You upload the audio</h3>
+            <p class="lead mb-0">Provide audio file in MP3 format and a working email</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-layers m-auto text-primary"></i>
+            </div>
+            <h3>We process it
+            <p class="lead mb-0">Using our powerful models we process the audio</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-check m-auto text-primary"></i>
+            </div>
+            <h3>You receive it</h3>
+            <p class="lead mb-0">Transcription is emailed to you in minutes right away!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('static/img/img3.svg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Gurantee</h2>
+          <p class="lead mb-0">We guarantee to meet deadlines for transcript delivery and also to achieve <u>98% accuracy</u> on clear recordings.</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('static/img/img5.svg');"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2>What we cover</h2>
+          <p class="lead mb-0"> In addition, we are able to identify up to a <u>maximum of 9 speakers</u> in any given audio. This is why our platform is ideal to handle multiple speakers in: <br><b><u>E-meetings, Telephone calls, Conferences, Podcasts, Youtube audios, Interviews ... </u></b></p></div>
+          <!-- <p class="lead mb-0">- E-meetings</p>
+          <p class="lead mb-0">- Telephone calls</p>
+          <p class="lead mb-0">- Conferences</p>
+          <p class="lead mb-0">- Podcasts</p>
+          <p class="lead mb-0">- Youtube audios</p>
+          <p class="lead mb-0">- Interviews</p> -->
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('static/img/img12.svg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>No lengthy contracts</h2>
+          <p class="lead mb-0">Your audio file is encrypted using SSL/TLS protocol making secure internet communication. Also, your files will be <b><u>deleted</u></b> automatically within 48hrs upon receiving.</p>
+          
+
+
+          <!-- <p class="lead mb-0">
+          In addition to converting your audio to a text file, we offer free text analysis tools to help you quickly capture more value of your data.</p> -->
+        </div>
+      </div>
+    </div>    
+  </section>
+
+
+
+  <!-- Testimonials -->
+ <!--  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5">What people are saying...</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
+            <h5>B.</h5>
+            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
+            <h5>Fred S.</h5>
+            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
+            <h5>Sarah W.</h5>
+            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Call to Action -->
+  <section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <!-- <h2 class="mb-4">Check out our Free text analysis service!</h2> -->
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+<!--             <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+              </div> -->
+              <div class="col-12 col-md-3">
+                <!-- <div class="center"> -->
+                <!-- <button type="submit" class="btn btn-block btn-lg btn-primary" class="center">Click me!</button> -->
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <!-- <li class="list-inline-item">
+              <a href="#">About</a> -->
+            <!-- </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item"> -->
+              <!-- <p href="#">Contact: transcribemyaudio.team@gmail.com</p> -->
+              <!-- <p class="text-muted small mb-4 mb-lg-0" >Contact: transcribemyaudio.team@gmail.com</p> -->
+            <!-- </li> -->
+            <!-- <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a> -->
+            <!-- </li>style="text-align:center" --> 
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0" >&copy; Transcribe my Audio 2020. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0" >Contact: transcribemyaudio.team@gmail.com</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="https://www.youtube.com/channel/UCHhnso5qiLAFN37GJborehA">
+                <i class="fab fa-youtube-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <!-- <i class="fab fa-instagram fa-2x fa-fw"></i> -->
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
