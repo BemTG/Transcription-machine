@@ -20,8 +20,6 @@ crypter= Fernet(key)
 
 # import api
 
-# aws_access_key_id = 'AKIAXQGTBX4MY6LCXCPT'
-# aws_secret_access_key = '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'
 
 aws_access_key_id= crypter.decrypt(b'gAAAAABgc3ld2YzqMSnJHuB1K7wECbLjHG7Rc_BoXqhGf0kWsAlvWh8807spqH1XCK-IVHq-COF2Nm2lKJUfb7YEjIfmhOOWHEcFhSpIcpqdpQEoeeejTmA=')
 aws_access_key_id=aws_access_key_id.decode("utf-8")
