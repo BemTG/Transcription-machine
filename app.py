@@ -5,7 +5,7 @@ import time as time
 from cryptography.fernet import Fernet
 import os 
 import sys
-import k_k
+
 
 import random
 import string
